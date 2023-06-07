@@ -6,6 +6,9 @@
 #include <string>
 #include <regex>
 #include <fcntl.h>
+#include <map>
+
+using namespace std;
 
 
 int isconnected( int s, fd_set *rd, fd_set *wr, fd_set *ex);

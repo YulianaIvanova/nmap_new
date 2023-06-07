@@ -27,6 +27,6 @@ void *TaskMultiply(void* args);
 
 void MultiplyParallel(string ip);
 
-void start_parallel(vector<string> ip_list);
+void start_parallel(vector<string>& ip_list);
 
 #endif //NMAP_PREV_TASK_PARALLEL_H

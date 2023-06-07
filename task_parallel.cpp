@@ -10,44 +10,41 @@ const int PORT_LIMIT = 65535;
 #define THREAD_COUNT 15
 
 
-struct ArgMultiply
+struct args_for_scan
 {
     int start_port;
     int end_port;
     string ip;
 };
 
-void *TaskMultiply(void* args) {
-    ArgMultiply *argMultiply = (ArgMultiply *) args;
-    string ip = argMultiply->ip;
-    for (int port = argMultiply->start_port; port < argMultiply->end_port; port++) {
+void *task_scan(void* args) {
+    args_for_scan *args_scan = (args_for_scan *) args;
+    string ip = args_scan->ip;
+    for (int port = args_scan->start_port; port < args_scan->end_port; port++) {
         tcp_connect(ip.c_str(), port);
     }
-    //cout<<"Check port: "<<  argMultiply->end_port <<endl;
 }
 
-void MultiplyParallel(string ip)
+void tcp_scan_parallel(string ip)
 {
     pthread_t threads[THREAD_COUNT];
     int chunk_size = PORT_LIMIT/THREAD_COUNT;
     for (int i=0; i<THREAD_COUNT; i++)
     {
-        ArgMultiply *argMultiply = new ArgMultiply();
-        argMultiply->start_port = i*chunk_size;
-        argMultiply->end_port = (i+1)*chunk_size;
-        argMultiply->ip = ip;
-        pthread_create(&threads[i], 0, TaskMultiply, argMultiply);
-
+        args_for_scan *args_scan = new args_for_scan();
+        args_scan->start_port = i*chunk_size;
+        args_scan->end_port = (i+1)*chunk_size;
+        args_scan->ip = ip;
+        pthread_create(&threads[i], 0, task_scan, args_scan);
     }
 
     for (int i=0; i<THREAD_COUNT; i++)
         pthread_join(threads[i], NULL);
 }
 
-void start_parallel(vector<string> ip_list) {
+void start_parallel(vector<string>& ip_list) {
     for (const string &ip_element: ip_list) {
         cout << "|---- " << ip_element << endl;
-        MultiplyParallel(ip_element);
-        //cout<< "Close port: " << CLOSEPORT<<endl;
+        tcp_scan_parallel(ip_element);
     }
 }

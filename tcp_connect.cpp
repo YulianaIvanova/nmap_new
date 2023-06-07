@@ -5,6 +5,9 @@
 #include <string>
 #include <regex>
 #include <fcntl.h>
+#include <map>
+
+using namespace std;
 
 
 int isconnected( int s, fd_set *rd, fd_set *wr, fd_set *ex)
@@ -20,9 +23,9 @@ int isconnected( int s, fd_set *rd, fd_set *wr, fd_set *ex)
     return err == 0;
 }
 
+
 void tcp_connect(const char* ip, const int port)
 {
-    int closed_port = 0;
     int _socket = socket(AF_INET, SOCK_STREAM, 0);
 
     sockaddr_in addr{};
@@ -30,29 +33,38 @@ void tcp_connect(const char* ip, const int port)
     addr.sin_port = htons(port);
     addr.sin_addr.s_addr = inet_addr(ip);
 
-    //signal(SIGALRM, handler);
-    //alarm(5);
-    // Trying to connect with timeout
+
 
     int flags = fcntl( _socket, F_GETFL, 0 );
     if( flags < 0 )
-        return;
-    //error( 1, errno, "Error calling fcntl(F_GETFL)" );
+    {
+        close(_socket);
+        return; //"Error calling fcntl(F_GETFL)" );
+    }
+
     if( fcntl( _socket, F_SETFL, flags | O_NONBLOCK ) < 0 )
-        return;
-    //error( 1, errno, "Error calling fcntl(F_SETFL)" );
+    {
+        close(_socket);
+        return; //"Error calling fcntl(F_SETFL)"
+    }
 
     int res = connect(_socket, (struct sockaddr *)&addr, sizeof(addr));
-    //alarm(0);
     if( res < 0 && errno != EINPROGRESS )
-        //error( 1, errno, "Error calling connect" );
-        return;
+    {
+        close(_socket);
+        return;//"Error calling connect"
+    }
+
 
     if( res == 0 ) // вдруг уже не надо ждать
     {
         if( fcntl( _socket, F_SETFL, flags ) < 0 )
-            return;
-        //error( 1, errno, "Error calling fcntl (flags recovery)");
+        {
+            close(_socket);
+            return; //"Error calling fcntl (flags recovery)");
+
+        }
+
         std::cout<<"Port "<< port << " is open"<<std::endl;
         close(_socket);
         return;
@@ -71,20 +83,31 @@ void tcp_connect(const char* ip, const int port)
     tv.tv_usec = 0;
     res = select( _socket + 1, &rdevents, &wrevents, &exevents, &tv );
     if( res < 0 )
-        return;
-        //error( 1, errno, "Error calling select" );
+    {
+        close(_socket);
+        return;//"Error calling select"
+    }
+
     else if( res == 0 )
-        return;
-        //error( 1, 0, "Connection timeout" );
+    {
+        close(_socket);
+        return;// "Connection timeout"
+    }
+
     else if( isconnected( _socket, &rdevents, &wrevents, &exevents ) )
     {
         if( fcntl( _socket, F_SETFL, flags ) < 0 )
-            return;
-        //error( 1, errno, "Error calling fcntl (flags recovery)" );
+        {
+            close(_socket);
+            return;//"Error calling fcntl (flags recovery)"
+        }
+
         std::cout<<"Port "<< port << " is open"<<std::endl;
         close(_socket);
     }
     else
-        return;
-    // error( 1, errno, "Error calling connect" );
+    {
+        close(_socket);
+        return;//"Error calling connect";
+    }
 }
