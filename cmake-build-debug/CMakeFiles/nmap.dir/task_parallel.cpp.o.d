@@ -1,4 +1,4 @@
-CMakeFiles/nmap_prev.dir/task_parallel.cpp.o: \
+CMakeFiles/nmap.dir/task_parallel.cpp.o: \
  /home/yuliana/nmap_prev/task_parallel.cpp /usr/include/stdc-predef.h \
  /usr/include/c++/9/iostream \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \

@@ -1,5 +1,5 @@
-#ifndef NMAP_PREV_WORK_WITH_IP_H
-#define NMAP_PREV_WORK_WITH_IP_H
+#ifndef NMAP_PREV_WORK_WITH_IP_HPP
+#define NMAP_PREV_WORK_WITH_IP_HPP
 
 #include <string.h>
 #include <regex>
@@ -25,4 +25,4 @@ void available_addresses(vector<string>& ip_list,
                          const unsigned mask);
 
 vector<string> calculation_ip(string& ip);
-#endif //NMAP_PREV_WORK_WITH_IP_H
+#endif //NMAP_PREV_WORK_WITH_IP_HPP

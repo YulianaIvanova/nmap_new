@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="nmap_prev"/>
+		<Option title="nmap"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -17,8 +17,8 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="nmap_prev">
-				<Option output="/home/yuliana/nmap_prev/cmake-build-debug/nmap_prev" prefix_auto="0" extension_auto="0"/>
+			<Target title="nmap">
+				<Option output="/home/yuliana/nmap_prev/cmake-build-debug/nmap" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/yuliana/nmap_prev/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -33,14 +33,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 nmap_prev"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 nmap"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="nmap_prev/fast">
-				<Option output="/home/yuliana/nmap_prev/cmake-build-debug/nmap_prev" prefix_auto="0" extension_auto="0"/>
+			<Target title="nmap/fast">
+				<Option output="/home/yuliana/nmap_prev/cmake-build-debug/nmap" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/yuliana/nmap_prev/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -55,7 +55,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 nmap_prev/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 nmap/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yuliana/nmap_prev/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -83,28 +83,28 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/yuliana/nmap_prev/main.cpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/task_parallel.cpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/task_parallel.hpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/tcp_connect.cpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/tcp_connect.hpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/timer.hpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/work_with_ip.cpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/work_with_ip.hpp">
-			<Option target="nmap_prev"/>
+			<Option target="nmap"/>
 		</Unit>
 		<Unit filename="/home/yuliana/nmap_prev/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

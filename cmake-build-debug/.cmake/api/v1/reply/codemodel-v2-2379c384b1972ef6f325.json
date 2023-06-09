@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "nmap_prev",
+					"name" : "nmap",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "nmap_prev::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-nmap_prev-Debug-99e00ec12a112486a1b1.json",
-					"name" : "nmap_prev",
+					"id" : "nmap::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nmap-Debug-687a980d3cfac47bbafe.json",
+					"name" : "nmap",
 					"projectIndex" : 0
 				}
 			]

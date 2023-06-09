@@ -159,7 +159,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=nmap_prev
+CMAKE_PROJECT_NAME:STATIC=nmap
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -228,6 +228,15 @@ ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
+
+//Value Computed by CMake
+nmap_BINARY_DIR:STATIC=/home/yuliana/nmap_prev/cmake-build-debug
+
+//Value Computed by CMake
+nmap_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+nmap_SOURCE_DIR:STATIC=/home/yuliana/nmap_prev
 
 //Value Computed by CMake
 nmap_prev_BINARY_DIR:STATIC=/home/yuliana/nmap_prev/cmake-build-debug

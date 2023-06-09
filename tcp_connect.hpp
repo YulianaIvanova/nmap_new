@@ -1,5 +1,5 @@
-#ifndef NMAP_PREV_TCP_CONNECT_H
-#define NMAP_PREV_TCP_CONNECT_H
+#ifndef NMAP_PREV_TCP_CONNECT_HPP
+#define NMAP_PREV_TCP_CONNECT_HPP
 
 #include <sys/socket.h>
 #include <unistd.h>
@@ -10,9 +10,8 @@
 
 using namespace std;
 
-
 int isconnected( int s, fd_set *rd, fd_set *wr, fd_set *ex);
 
 void tcp_connect(const char* ip, const int port);
 
-#endif //NMAP_PREV_TCP_CONNECT_H
+#endif //NMAP_PREV_TCP_CONNECT_HPP

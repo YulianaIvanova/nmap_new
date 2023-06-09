@@ -5,19 +5,17 @@
 #include <string>
 #include <regex>
 #include <fcntl.h>
-#include <map>
 
 using namespace std;
 
-
-int isconnected( int s, fd_set *rd, fd_set *wr, fd_set *ex)
+int isconnected( int _s, fd_set *rd, fd_set *wr, fd_set *ex)
 {
     int err;
     socklen_t len = sizeof( err );
     errno = 0; /*предполагаем, что ошибки нет*/
-    if( !FD_ISSET( s, rd ), !FD_ISSET( s, wr ) )
+    if( !FD_ISSET( _s, rd ), !FD_ISSET( _s, wr ) )
         return 0;
-    if(getsockopt(s, SOL_SOCKET, SO_ERROR, (void*)(&err), &len) < 0 )
+    if(getsockopt(_s, SOL_SOCKET, SO_ERROR, (void*)(&err), &len) < 0 )
         return 0;
     errno = err; /* если мы не соединились */
     return err == 0;
@@ -26,13 +24,17 @@ int isconnected( int s, fd_set *rd, fd_set *wr, fd_set *ex)
 
 void tcp_connect(const char* ip, const int port)
 {
-    int _socket = socket(AF_INET, SOCK_STREAM, 0);
+   int _socket;
+   do {
+       _socket = socket(AF_INET, SOCK_STREAM, 0);
+       usleep(100000);
+
+   }while(_socket < 0 && errno == EMFILE);
 
     sockaddr_in addr{};
     addr.sin_family = AF_INET;
     addr.sin_port = htons(port);
     addr.sin_addr.s_addr = inet_addr(ip);
-
 
 
     int flags = fcntl( _socket, F_GETFL, 0 );
@@ -48,12 +50,13 @@ void tcp_connect(const char* ip, const int port)
         return; //"Error calling fcntl(F_SETFL)"
     }
 
-    int res = connect(_socket, (struct sockaddr *)&addr, sizeof(addr));
-    if( res < 0 && errno != EINPROGRESS )
-    {
-        close(_socket);
-        return;//"Error calling connect"
-    }
+    int res;
+    do{
+        res = connect(_socket, (struct sockaddr *)&addr, sizeof(addr));
+        usleep(100000);
+
+    }while(res < 0 && errno != EINPROGRESS);// || errno != EADDRNOTAVAIL);
+
 
 
     if( res == 0 ) // вдруг уже не надо ждать
@@ -65,7 +68,7 @@ void tcp_connect(const char* ip, const int port)
 
         }
 
-        std::cout<<"Port "<< port << " is open"<<std::endl;
+        cout<<"PORT "<< port << " IS OPEN"<< endl;
         close(_socket);
         return;
     }
@@ -102,12 +105,14 @@ void tcp_connect(const char* ip, const int port)
             return;//"Error calling fcntl (flags recovery)"
         }
 
-        std::cout<<"Port "<< port << " is open"<<std::endl;
+        cout << "PORT "<< port << " IS OPEN" << endl;
         close(_socket);
+        return;
     }
     else
     {
         close(_socket);
         return;//"Error calling connect";
     }
+
 }

@@ -53,5 +53,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/nmap_prev.dir/DependInfo.cmake"
+  "CMakeFiles/nmap.dir/DependInfo.cmake"
   )

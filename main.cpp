@@ -1,7 +1,6 @@
 #include <iostream>
-#include "work_with_ip.h"
-#include "task_parallel.h"
-#include "port_range.h"
+#include "work_with_ip.hpp"
+#include "task_parallel.hpp"
 using namespace std;
 
 
@@ -18,14 +17,14 @@ int main(int argc, char** argv) {
 
     if(argc == 2)
     {
-        start(ip_list, 0, 1000);
+        start_parallel(ip_list, 1000);//проверка первой 1000 портов
         return 0;
     }
 
     string tmp = argv[2];
     if(tmp=="-p-")
     {
-        start_parallel(ip_list);
+        start_parallel(ip_list, PORT_LIMIT);//проверка всех портов
     }
     else if (tmp=="-p")
     {
@@ -45,14 +44,8 @@ int main(int argc, char** argv) {
             cout << "Invalid port\'s range!" << endl;
             return 0;
         }
-        start(ip_list, left, right);
-        // проверит порты в определенном диапазоне
+        start_parallel(ip_list, right-left); // проверка диапазона портов
     }
-    else if(tmp=="-f")
-    {
-        //быстрая проверка портов из списка nmap
-    }
-
 
     return 0;
 }

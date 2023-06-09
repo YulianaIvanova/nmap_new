@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named nmap_prev
+# Target rules for targets named nmap
 
 # Build rule for target.
-nmap_prev: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 nmap_prev
-.PHONY : nmap_prev
+nmap: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 nmap
+.PHONY : nmap
 
 # fast build rule for target.
-nmap_prev/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/build
-.PHONY : nmap_prev/fast
+nmap/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/build
+.PHONY : nmap/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,39 +150,15 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-port_range.o: port_range.cpp.o
-.PHONY : port_range.o
-
-# target to build an object file
-port_range.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/port_range.cpp.o
-.PHONY : port_range.cpp.o
-
-port_range.i: port_range.cpp.i
-.PHONY : port_range.i
-
-# target to preprocess a source file
-port_range.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/port_range.cpp.i
-.PHONY : port_range.cpp.i
-
-port_range.s: port_range.cpp.s
-.PHONY : port_range.s
-
-# target to generate assembly for a file
-port_range.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/port_range.cpp.s
-.PHONY : port_range.cpp.s
 
 task_parallel.o: task_parallel.cpp.o
 .PHONY : task_parallel.o
 
 # target to build an object file
 task_parallel.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/task_parallel.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/task_parallel.cpp.o
 .PHONY : task_parallel.cpp.o
 
 task_parallel.i: task_parallel.cpp.i
@@ -190,7 +166,7 @@ task_parallel.i: task_parallel.cpp.i
 
 # target to preprocess a source file
 task_parallel.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/task_parallel.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/task_parallel.cpp.i
 .PHONY : task_parallel.cpp.i
 
 task_parallel.s: task_parallel.cpp.s
@@ -198,7 +174,7 @@ task_parallel.s: task_parallel.cpp.s
 
 # target to generate assembly for a file
 task_parallel.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/task_parallel.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/task_parallel.cpp.s
 .PHONY : task_parallel.cpp.s
 
 tcp_connect.o: tcp_connect.cpp.o
@@ -206,7 +182,7 @@ tcp_connect.o: tcp_connect.cpp.o
 
 # target to build an object file
 tcp_connect.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/tcp_connect.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/tcp_connect.cpp.o
 .PHONY : tcp_connect.cpp.o
 
 tcp_connect.i: tcp_connect.cpp.i
@@ -214,7 +190,7 @@ tcp_connect.i: tcp_connect.cpp.i
 
 # target to preprocess a source file
 tcp_connect.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/tcp_connect.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/tcp_connect.cpp.i
 .PHONY : tcp_connect.cpp.i
 
 tcp_connect.s: tcp_connect.cpp.s
@@ -222,7 +198,7 @@ tcp_connect.s: tcp_connect.cpp.s
 
 # target to generate assembly for a file
 tcp_connect.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/tcp_connect.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/tcp_connect.cpp.s
 .PHONY : tcp_connect.cpp.s
 
 work_with_ip.o: work_with_ip.cpp.o
@@ -230,7 +206,7 @@ work_with_ip.o: work_with_ip.cpp.o
 
 # target to build an object file
 work_with_ip.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/work_with_ip.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/work_with_ip.cpp.o
 .PHONY : work_with_ip.cpp.o
 
 work_with_ip.i: work_with_ip.cpp.i
@@ -238,7 +214,7 @@ work_with_ip.i: work_with_ip.cpp.i
 
 # target to preprocess a source file
 work_with_ip.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/work_with_ip.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/work_with_ip.cpp.i
 .PHONY : work_with_ip.cpp.i
 
 work_with_ip.s: work_with_ip.cpp.s
@@ -246,7 +222,7 @@ work_with_ip.s: work_with_ip.cpp.s
 
 # target to generate assembly for a file
 work_with_ip.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap_prev.dir/build.make CMakeFiles/nmap_prev.dir/work_with_ip.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nmap.dir/build.make CMakeFiles/nmap.dir/work_with_ip.cpp.s
 .PHONY : work_with_ip.cpp.s
 
 # Help Target
@@ -257,13 +233,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... nmap_prev"
+	@echo "... nmap"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... port_range.o"
-	@echo "... port_range.i"
-	@echo "... port_range.s"
 	@echo "... task_parallel.o"
 	@echo "... task_parallel.i"
 	@echo "... task_parallel.s"
